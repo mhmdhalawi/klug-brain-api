@@ -1,0 +1,31 @@
+version: '3.7'
+
+services:
+  klug-brain-api:
+    container_name: backend
+    build: ./
+    command: npm run start:dev
+    working_dir: /user/src/klug-brain-api
+    # network_mode: 'host'
+    environment:
+      POSTGRES_USER: mhmd
+      POSTGRES_PASSWORD: 19121993
+      POSTGRES_DB: klug-brain
+      POSTGRES_HOST: postgres
+    links:
+      - postgres
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./:/user/src/klug-brain-api
+
+  #Postgres
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 19121993
+      POSTGRES_DB: klug-brain
+      POSTGRES_HOST: postgres
+    ports:
+      - '5432:5432'
