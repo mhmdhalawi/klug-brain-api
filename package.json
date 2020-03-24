@@ -1,7 +1,7 @@
 {
   "name": "klug-brain-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "app that detects faces",
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
